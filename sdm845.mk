@@ -489,6 +489,17 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 
-# Thermal
+# Thermal HAL
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0
+    android.hardware.thermal@2.0-service.pixel \
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/thermal_info_config_qcom.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
+    $(LOCAL_PATH)/thermal_info_config_qcom_evt.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_evt.json
+
+# Thermal-engine
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/thermal-engine-qcom-novr-evt.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-qcom-novr-evt.conf \
+    $(LOCAL_PATH)/thermal-engine-qcom-novr-prod.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-qcom-novr-prod.conf \
+    $(LOCAL_PATH)/thermal-engine-qcom-vr-evt.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-qcom-vr-evt.conf \
+    $(LOCAL_PATH)/thermal-engine-qcom-vr-prod.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-qcom-vr-prod.conf
