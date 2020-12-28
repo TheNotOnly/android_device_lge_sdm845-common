@@ -49,7 +49,7 @@ on boot
 	chown system system /sys/class/backlight/panel0-backlight-ex/max_brightness
 	chmod 664 /sys/class/backlight/panel0-backlight-ex/max_brightness
 	chown system system /sys/class/panel/brightness/hl_mode
-	chmod 664 /sys/class/panel/brightness/hl_mode
+	chmod 777 /sys/class/panel/brightness/hl_mode
 	chown system system /sys/class/panel/brightness/br_offset
 	chmod 664 /sys/class/panel/brightness/br_offset
 	chown system system /sys/class/panel/brightness/irc_brighter
