@@ -71,3 +71,7 @@ genfscon proc /sys/kernel/sched_boost                 u:object_r:proc_sysctl_sch
 /vendor/bin/hw/android\.hardware\.power\.stats@1\.0-service\.lge                                        u:object_r:hal_power_stats_default_exec:s0
 /vendor/bin/hw/android\.hardware\.thermal@2\.0-service\.pixel                                           u:object_r:hal_thermal_default_exec:s0
 /vendor/bin/hw/android\.hardware\.power-service\.lge-libperfmgr                                         u:object_r:hal_power_default_exec:s0
+
+# UFSHC
+/sys/devices/platform/soc/1d84000.ufshc/clkgate_enable                  u:object_r:sysfs_scsi_clkgate:s0
+/sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable          u:object_r:sysfs_scsi_hibern8:s0

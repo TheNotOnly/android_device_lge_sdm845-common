@@ -35,3 +35,5 @@ type sysfs_msm_subsys, sysfs_type, fs_type;
 type sysfs_rpm, sysfs_type, fs_type;
 type sysfs_system_sleep_stats, sysfs_type, fs_type;
 type sysfs_wireless_supply, sysfs_type, fs_type;
+type sysfs_scsi_clkgate, sysfs_type, fs_type;
+type sysfs_scsi_hibern8, sysfs_type, fs_type; 
