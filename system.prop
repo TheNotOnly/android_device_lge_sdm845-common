@@ -46,11 +46,12 @@ ril.subscription.types=NV,RUIM
 ro.telephony.default_network=9
 
 # Graphics
-debug.egl.hw=1
-debug.sf.hw=1
+debug.egl.hw=0
+debug.sf.hw=0
 debug.gralloc.gfx_ubwc_disable=0
 debug.gralloc.enable_fb_ubwc=1
 debug.sf.disable_backpressure=1
+debug.cpurend.vsync=true
 ro.surface_flinger.protected_contents=true
 ro.surface_flinger.has_wide_color_display=true
 ro.surface_flinger.has_HDR_display=true
@@ -79,9 +80,6 @@ ro.surface_flinger.supports_background_blur=1
 persist.sys.sf.disable_blurs=0 
 ro.sf.blurs_are_expensive=1
 ro.surface_flinger.use_color_management=true
-
-# Disable vsync for cpu rendered apps
-debug.cpurend.vsync=false
 
 # IOP
 vendor.iop.enable_uxe=1
@@ -131,3 +129,7 @@ ro.hwui.text_small_cache_width=1024
 ro.hwui.text_small_cache_height=1024
 ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=4096
+
+# Serial Console
+ro.console.enable=0
+ro.debuggable=0

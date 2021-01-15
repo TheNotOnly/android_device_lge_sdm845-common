@@ -29,7 +29,7 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 EVO_ROOT="${MY_DIR}/../../.."
 
-HELPER="${EVO_ROOT}/vendor/evolution/build/tools/extract_utils.sh"
+HELPER="${EVO_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -58,7 +58,7 @@ while [ "$1" != "" ]; do
 done
 
 if [ -z "${SRC}" ]; then
-    SRC=/home/darren/stock/30b/system/
+    SRC=/home/darren/stock/30f/system/
 fi
 
 # Initialize the helper
