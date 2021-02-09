@@ -76,7 +76,3 @@ vendor.lge.ril.sim_inserted.slot1                   u:object_r:exported_radio_pr
 vendor.lge.ril.sim_inserted.slot2                   u:object_r:exported_radio_prop:s0
 vendor.lge.ril.vss.common_init                      u:object_r:exported_radio_prop:s0
 vendor.lge.ril.vss.nv_init                          u:object_r:exported_radio_prop:s0
-
-# Wifi
-vendor.wlan.driver.version                          u:object_r:vendor_wifi_version:s0
-vendor.wlan.firmware.version                        u:object_r:vendor_wifi_version:s0

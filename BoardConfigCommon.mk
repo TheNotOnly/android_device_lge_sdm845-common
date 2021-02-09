@@ -40,6 +40,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Platform
 TARGET_BOARD_PLATFORM := sdm845
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
 
 # APEX image
 DEXPREOPT_GENERATE_APEX_IMAGE := true
@@ -67,7 +68,6 @@ TARGET_USES_QTI_CAMERA_DEVICE := true
 USE_CAMERA_STUB := true
 
 # Display
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
@@ -75,10 +75,6 @@ TARGET_USES_QCOM_DISPLAY_BSP := true
 TARGET_USES_COLOR_METADATA := true
 TARGET_USE_COLOR_MANAGEMENT := true
 TARGET_USES_DRM_PP := true
-
-
-MAX_EGL_CACHE_KEY_SIZE := 12*1024
-MAX_EGL_CACHE_SIZE := 2048*1024
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
@@ -110,7 +106,7 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_lge_sdm845
 # Kernel
 BOARD_KERNEL_CMDLINE := video=vfb:640x400,bpp=32,memsize=3072000
 BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237 ehci-hcd.park=3
-BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 service_locator.enable=1
+BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=0 service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=2048 androidboot.configfs=true
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3
 BOARD_KERNEL_CMDLINE += loop.max_part=7
@@ -153,7 +149,6 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 # Power
 TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/power-mode.cpp
-TARGET_USES_INTERACTION_BOOST := true
 TARGET_USES_NON_LEGACY_POWERHAL := true
 
 # QCOM
@@ -174,8 +169,8 @@ TARGET_RIL_VARIANT := caf
 
 # Sepolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
-#BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
-#BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
+BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 
 # Treble
 BOARD_VNDK_VERSION := current

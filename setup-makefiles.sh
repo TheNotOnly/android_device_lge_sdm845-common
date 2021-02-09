@@ -29,9 +29,9 @@ INITIAL_COPYRIGHT_YEAR=2019
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-EVO_ROOT="$MY_DIR"/../../..
+DOT_ROOT="$MY_DIR"/../../..
 
-HELPER="$EVO_ROOT"/vendor/lineage/build/tools/extract_utils.sh
+HELPER="$DOT_ROOT"/vendor/dot/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -39,7 +39,7 @@ fi
 . "$HELPER"
 
 # Initialize the helper
-setup_vendor "$DEVICE" "$VENDOR" "$EVO_ROOT"
+setup_vendor "$DEVICE" "$VENDOR" "$DOT_ROOT"
 
 # Copyright headers and guards
 write_headers "judypn judyln"

@@ -38,8 +38,6 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
--include frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk
-	
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # AAPT
@@ -178,20 +176,30 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.2-service \
     android.hardware.graphics.composer@2.2-impl \
+    android.hardware.graphics.composer@2.2-service \
     android.hardware.graphics.mapper@2.0-impl-qti-display \
+    vendor.qti.hardware.display.allocator@1.0-service \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
     gralloc.sdm845 \
     hwcomposer.sdm845 \
-    libdisplayconfig.qti \
     libtinyxml \
     libvulkan \
-    vendor.display.config@2.0 \
-    vendor.display.config@2.0.vendor \
     memtrack.sdm845 \
-    vendor.qti.hardware.display.allocator@1.0-service
+    libqdutils \
+    vendor.display.config@1.0.vendor \
+    vendor.display.config@1.1.vendor \
+    vendor.display.config@1.2.vendor \
+    vendor.display.config@1.3.vendor \
+    vendor.display.config@1.4.vendor \
+    vendor.display.config@1.5.vendor \
+    vendor.display.config@1.6.vendor \
+    vendor.display.config@1.7.vendor \
+    vendor.display.config@1.8.vendor \
+    vendor.display.config@1.9.vendor \
+    vendor.display.config@2.0.vendor \
+    vendor.display.config@2.0
 
 # Doze
  PRODUCT_PACKAGES += \
@@ -353,7 +361,8 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti \
+    android.hardware.power-service \
+    android.hardware.power-impl \
     android.hardware.power.stats@1.0-service.mock
 
 PRODUCT_COPY_FILES += \
@@ -394,6 +403,9 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
+# Setup dalvik vm configs
+$(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
+
 # Seccomp policy
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
@@ -415,17 +427,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
-# TextClassifier
-PRODUCT_PACKAGES += \
-    textclassifier.smartselection.bundle1
-
 # Touch
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.lge_sdm845
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
 
 # USB
 PRODUCT_PACKAGES += \
@@ -453,7 +457,7 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     WifiOverlay \
     wpa_supplicant \
-    wpa_supplicant.conf 
+    wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
