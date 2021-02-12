@@ -264,6 +264,8 @@ on post-fs-data
     #Create folder of camera
     mkdir /data/vendor/camera 0770 camera camera
 
+    # Change ownership to system
+    chown system system /data/vendor/tombstones
 
     #Create directory for tftp
     mkdir /data/vendor/tombstones/rfs 0771 system system
@@ -498,7 +500,6 @@ on property:sys.boot_completed=1
 
 on property:sys.boot_completed=1
     # Enable UFS powersaving
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
     write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
     write /sys/devices/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 1
     write /sys/module/lpm_levels/parameters/sleep_disabled N
@@ -1097,8 +1098,8 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     class hal
     user audioserver
     # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
-    group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct oem_2901 wakelock
-    capabilities BLOCK_SUSPEND
+    group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct oem_2901 wakelock system
+    capabilities BLOCK_SUSPEND SYS_NICE
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
     socket audio_hw_socket seqpacket 0666 system system

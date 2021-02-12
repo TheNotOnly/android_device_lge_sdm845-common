@@ -33,7 +33,7 @@ start() {
   # Add zram tunable parameters
   # you can set "compr_zram=lzo" or "compr_zram=lz4"
   # but when you set "zram=lz4", you must set "CONFIG_ZRAM_LZ4_COMPRESS=y"
-  compr_zram=lzo
+  compr_zram=lz4
   nr_multi_zram=1
   sz_zram0=0
   zram_async=0

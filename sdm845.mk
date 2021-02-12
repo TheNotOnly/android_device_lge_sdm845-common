@@ -23,16 +23,15 @@ COMMON_PATH := device/lge/sdm845-common
 PRODUCT_PLATFORM := sdm845
 
 PRODUCT_SOONG_NAMESPACES += \
-    $(COMMON_PATH)/bootctrl
+    $(COMMON_PATH)/bootctrl \
+    vendor/qcom/opensource/commonsys-intf/display
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(COMMON_PATH)/overlay \
-    $(COMMON_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    $(COMMON_PATH)/overlay-lineage/lineage-sdk
+
 
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
@@ -93,7 +92,7 @@ PRODUCT_PACKAGES_DEBUG += \
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
-    android.hardware.audio@2.0-service \
+    android.hardware.audio.service \
     android.hardware.audio@6.0-impl \
     android.hardware.audio.common@2.0-util \
     android.hardware.audio.common@6.0-util \
@@ -186,6 +185,7 @@ PRODUCT_PACKAGES += \
     hwcomposer.sdm845 \
     libtinyxml \
     libvulkan \
+    libdisplayconfig.qti \
     memtrack.sdm845 \
     libqdutils \
     vendor.display.config@1.0.vendor \
@@ -384,12 +384,18 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
     $(COMMON_PATH)/permissions/product_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-qti.xml
 
+# QTI Perf
+PRODUCT_PACKAGES += \
+   libtextclassifier_hash
+
+# QTI common
+-include vendor/qcom/common/perf/perf-vendor.mk
+
 # RCS
 PRODUCT_PACKAGES += \
-    rcs_service_aidl \
-    rcs_service_aidl.xml \
-    rcs_service_api \
-    rcs_service_api.xml
+    com.android.ims.rcsmanager \
+    PresencePolling \
+    RcsService
 
 # RenderScript
 PRODUCT_PACKAGES += \
@@ -467,8 +473,6 @@ PRODUCT_COPY_FILES += \
 
 # WiFi Display
 PRODUCT_PACKAGES += \
-    libdisplayconfig \
-    libdisplayconfig.vendor \
     libnl \
     libqdMetaData \
     libqdMetaData.system
@@ -479,3 +483,13 @@ PRODUCT_BOOT_JARS += \
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
+
+# Packages
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0 \
+    libtflite \
+    vendor.qti.hardware.servicetracker@1.2.vendor
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=libqti-perfd-client.so
