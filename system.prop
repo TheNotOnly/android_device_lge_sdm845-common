@@ -87,15 +87,6 @@ ro.vendor.display.cabl=2
 #LMK
 ro.config.low_ram = false
 
-# IOP
-vendor.iop.enable_uxe=1
-vendor.iop.enable_prefetch_ofr=0
-vendor.perf.iop_v3.enable=true
-vendor.perf.gestureflingboost.enable=true
-vendor.perf.workloadclassifier.enable=true
-persist.vendor.qti.games.gt.prof=1
-ro.vendor.at_library=libqti-at.so
-
 # Voice assistant
 ro.opa.eligible_device=true
 
