@@ -27,11 +27,11 @@
 #
 
 # pm debug mask enable(clock/resume irq)
-on boot
-   write /sys/kernel/debug/clk/debug_suspend 1
-   write /sys/module/msm_show_resume_irq/parameters/debug_mask 1
+#on boot
+#   write /sys/kernel/debug/clk/debug_suspend 1
+#   write /sys/module/msm_show_resume_irq/parameters/debug_mask 1
 # printk log level
-   write /proc/sys/kernel/printk "7 6 1 7"
+#   write /proc/sys/kernel/printk "7 6 1 7"
 
 # LGE gbmd
 service vendor.gbmd /vendor/bin/gbmd
@@ -48,15 +48,15 @@ service vendor.prmd /vendor/bin/prmd
    group system
 
 # LG Hiddenmenu smpl_count service
-service vendor.smpl_count /vendor/bin/smpl_count
-   class main
-   user root
-   oneshot
+#service vendor.smpl_count /vendor/bin/smpl_count
+#   class main
+#   user root
+#   oneshot
 
-on enable-low-power
+on boot
 # msm_drm
-   write /proc/irq/7/smp_affinity_list 2
+   write /proc/irq/218/smp_affinity_list 2
 
 # kgsl-3d0
-   write /proc/irq/489/smp_affinity_list 1
+   write /proc/irq/209/smp_affinity_list 1
 

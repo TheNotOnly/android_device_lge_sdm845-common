@@ -611,14 +611,14 @@ setprop ro.vendor.ril.mbn_copy_completed 1
 
 #check build variant for printk logging
 #current default minimum boot-time-default
-buildvariant=`getprop ro.build.type`
-case "$buildvariant" in
-    "userdebug" | "eng")
+#buildvariant=`getprop ro.build.type`
+#case "$buildvariant" in
+#    "userdebug" | "eng")
         #set default loglevel to KERN_INFO
-        echo "6 6 1 7" > /proc/sys/kernel/printk
-        ;;
-    *)
+#        echo "6 6 1 7" > /proc/sys/kernel/printk
+#        ;;
+#    *)
         #set default loglevel to KERN_WARNING
-        echo "4 4 1 4" > /proc/sys/kernel/printk
-        ;;
-esac
+#        echo "4 4 1 4" > /proc/sys/kernel/printk
+#        ;;
+#esac
