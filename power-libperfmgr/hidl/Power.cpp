@@ -30,8 +30,7 @@
 #include <utils/Log.h>
 #include <utils/Trace.h>
 
-#include "Power.h"
-#include "display-helper.h"
+#include "disp-power/display-helper.h"
 
 namespace android {
 namespace hardware {

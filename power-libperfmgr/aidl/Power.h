@@ -30,7 +30,7 @@ namespace android {
 namespace hardware {
 namespace power {
 namespace impl {
-namespace pixel {
+namespace lge {
 
 using ::InteractionHandler;
 using ::android::perfmgr::HintManager;
@@ -52,7 +52,7 @@ class Power : public BnPower {
     std::atomic<bool> mReady;
 };
 
-}  // namespace pixel
+}  // namespace lge
 }  // namespace impl
 }  // namespace power
 }  // namespace hardware
