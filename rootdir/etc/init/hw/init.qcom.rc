@@ -352,11 +352,6 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-    # Property used by pointing to thermal-engine config file
-    setprop vendor.thermal.vr_mode -novr
-    setprop vendor.thermal.hw_mode -prod
-    setprop vendor.thermal.config "thermal_info_config.json"
-
     #Create a folder for SRS to be able to create a usercfg file
     #mkdir /data/data/media 0770 media media
 
@@ -971,18 +966,6 @@ service vendor.msm_irqbl_sdm630 /vendor/bin/msm_irqbalance -f /system/vendor/etc
     user root
     group root
     disabled
-
-# reset thermal-engine when changed profile
-on property:vendor.thermal.vr_mode=*
-    restart vendor.thermal-engine
-
-service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-${ro.hardware}${vendor.thermal.vr_mode}${vendor.thermal.hw_mode}.conf
-   class main
-   user root
-   group root system
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
 
 # service for USERDEBUG
 service vendor.LKCore-dbg /vendor/bin/LKCore
