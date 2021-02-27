@@ -359,15 +359,6 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/privapp-permissions-platform.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-platform.xml \
     $(COMMON_PATH)/permissions/privapp-permissions-lge_sdm845.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lge_sdm845.xml
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power-service \
-    android.hardware.power-impl \
-    android.hardware.power.stats@1.0-service.mock
-
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
-
 # Protobuf
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-vendorcompat \
@@ -383,13 +374,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
     $(COMMON_PATH)/permissions/product_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-qti.xml
-
-# QTI Perf
-PRODUCT_PACKAGES += \
-   libtextclassifier_hash
-
-# QTI common
--include vendor/qcom/common/perf/perf-vendor.mk
 
 # RCS
 PRODUCT_PACKAGES += \
@@ -484,12 +468,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 
-# Packages
+# Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0 \
-    libtflite \
-    vendor.qti.hardware.servicetracker@1.2.vendor
-
-# Properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so
+    android.hardware.thermal@2.0
