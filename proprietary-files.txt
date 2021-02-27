@@ -526,12 +526,6 @@ vendor/lib64/unnhal-acc-common.so
 vendor/lib64/unnhal-acc-hvx.so
 vendor/lib64/libhexagon_nn_stub.so
 
-# Perf
-vendor/lib/libqti-util.so
-vendor/lib64/libqti-perfd-client.so
-vendor/lib64/libqti-util.so
-vendor/lib64/vendor.qti.hardware.perf@2.0.so
-
 # Power-off alarm - from LA.UM.9.8.r1-02700-SDM710.0
 -product/app/PowerOffAlarm/PowerOffAlarm.apk|88544eea8cd47547bb7e6e52fae573453bea25a3
 vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service|6f58edbe898a0582b02b688ec8a47a57a50707ec
