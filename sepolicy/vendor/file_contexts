@@ -66,3 +66,5 @@
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/idle_state            u:object_r:sysfs_graphics:s0
 genfscon debugfs /sched_features                      u:object_r:debugfs_sched_features:s0
 genfscon proc /sys/kernel/sched_boost                 u:object_r:proc_sysctl_schedboost:s0
+/vendor/bin/hw/android\.hardware\.power@1\.3-service\.lge-libperfmgr                                    u:object_r:hal_power_default_exec:s0
+/vendor/bin/hw/android\.hardware\.power\.stats@1\.0-service\.lge                                        u:object_r:hal_power_stats_default_exec:s0
