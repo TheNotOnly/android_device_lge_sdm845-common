@@ -89,6 +89,10 @@ PRODUCT_PACKAGES_DEBUG += \
     bootctl \
     update_engine_client
 
+# Tracing
+PRODUCT_PACKAGES += \
+    android.hardware.atrace@1.0-service.pixel
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
