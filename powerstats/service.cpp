@@ -1,4 +1,4 @@
-/*
+n/*
  * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.power.stats@1.0-service.pixel"
+#define LOG_TAG "android.hardware.power.stats@1.0-service.lge"
 
 #include <android-base/properties.h>
 #include <android/log.h>
