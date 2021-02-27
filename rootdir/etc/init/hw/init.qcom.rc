@@ -512,6 +512,9 @@ on property:sys.boot_completed=1
     write /dev/stune/top-app/schedtune.boost 5
     write /dev/stune/top-app/schedtune.prefer_idle 1
 
+    #Enable suspend to idle mode to reduce latency during suspend/resume
+    write /sys/power/mem_sleep "s2idle"
+
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
 
