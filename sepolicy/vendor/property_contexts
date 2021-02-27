@@ -76,3 +76,9 @@ vendor.lge.ril.sim_inserted.slot1                   u:object_r:exported_radio_pr
 vendor.lge.ril.sim_inserted.slot2                   u:object_r:exported_radio_prop:s0
 vendor.lge.ril.vss.common_init                      u:object_r:exported_radio_prop:s0
 vendor.lge.ril.vss.nv_init                          u:object_r:exported_radio_prop:s0
+
+# PowerHAL
+vendor.powerhal.state      u:object_r:vendor_power_prop:s0
+vendor.powerhal.audio      u:object_r:vendor_power_prop:s0
+vendor.powerhal.lpm        u:object_r:vendor_power_prop:s0
+vendor.powerhal.init       u:object_r:vendor_power_prop:s0

@@ -61,3 +61,8 @@
 /sys/class/leds/wled/secure_mode                                                            u:object_r:sysfs_graphics:s0
 /sys/devices/platform/soc/soc:qcom,kgsl-hyp/subsys[0-9]/restart_level                       u:object_r:sysfs_ssr_toggle:s0
 /sys/devices(/platform)?/soc/[a-f0-9]+.qcom,cam-req-mgr/video4linux/video[0-33]/name(/.*)?  u:object_r:sysfs_graphics:s0
+
+# Power
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/idle_state            u:object_r:sysfs_graphics:s0
+genfscon debugfs /sched_features                      u:object_r:debugfs_sched_features:s0
+genfscon proc /sys/kernel/sched_boost                 u:object_r:proc_sysctl_schedboost:s0
