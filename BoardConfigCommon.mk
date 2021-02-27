@@ -101,7 +101,7 @@ DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
 DEVICE_MATRIX_FILE += $(COMMON_PATH)/compatibility_matrix.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_lge_sdm845
+TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_lge_sdm845
 TARGET_RECOVERY_DEVICE_MODULES := libinit_lge_sdm845
 
 # Kernel
@@ -170,8 +170,11 @@ TARGET_RIL_VARIANT := caf
 
 # Sepolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
-BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+#BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
+#BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += $(VENDOR_PATH)
 
 # Treble
 BOARD_VNDK_VERSION := current
