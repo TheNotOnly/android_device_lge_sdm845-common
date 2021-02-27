@@ -138,10 +138,6 @@ vendor.display.disable_rotator_downscale=1
 # Memory
 persist.device_config.use_cgroup_freezer=true
 
-# Perf
-ro.vendor.extension_library=libqti-perfd-client.so
-ro.vendor.qti.sys.fw.bg_apps_limit=60
-
 # Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1
 
