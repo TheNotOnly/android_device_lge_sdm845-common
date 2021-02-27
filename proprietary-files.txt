@@ -854,12 +854,10 @@ vendor/lib/libsubsystem_control.so
 vendor/lib64/libSubSystemShutdown.so
 vendor/lib64/libsubsystem_control.so
 
-# Thermal engine
-vendor/bin/thermal-engine
-vendor/lib64/libthermalclient.so
-vendor/lib/libthermalclient.so
-vendor/etc/thermal-engine.conf
-vendor/etc/thermal-engine-default.conf
+# Thermal engine - from blueline 
+vendor/bin/thermal-engine|fb4f8961a6af65b656bafb6a500faf4ad7e8f38c
+vendor/lib64/libthermalclient.so|3feda5421890c63f8a61acaa1e0133804a1d67e8
+vendor/lib/libthermalclient.so|95f050e249da5841dcc61444b47cdd369768a266
 
 # Time services - from LA.UM.9.8.r1-02700-SDM710.0
 -vendor/app/TimeService/TimeService.apk|12495431d5cc284822a303a43861c9b3c0c446ac
