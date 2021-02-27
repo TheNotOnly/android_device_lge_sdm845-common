@@ -364,6 +364,13 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-vendorcompat \
     libprotobuf-cpp-lite-vendorcompat
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.3-service.lge-libperfmgr
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson \
