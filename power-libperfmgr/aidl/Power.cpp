@@ -33,7 +33,7 @@
 #include "disp-power/DisplayLowPower.h"
 
 #ifndef TARGET_TAP_TO_WAKE_NODE
-#define TARGET_TAP_TO_WAKE_NODE "/dev/input/event2"
+#define TARGET_TAP_TO_WAKE_NODE "/sys/devices/virtual/input/lge_touch/tap2wake"
 #endif
 
 namespace aidl {
