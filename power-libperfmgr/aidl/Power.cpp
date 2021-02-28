@@ -32,10 +32,9 @@
 
 #include "disp-power/DisplayLowPower.h"
 
-#include <linux/input.h>
-
-constexpr int kWakeupModeOff = 4;
-constexpr int kWakeupModeOn = 5;
+#ifndef TARGET_TAP_TO_WAKE_NODE
+#define TARGET_TAP_TO_WAKE_NODE "/dev/input/event2"
+#endif
 
 namespace aidl {
 namespace google {
@@ -81,61 +80,30 @@ Power::Power(std::shared_ptr<HintManager> hm, std::shared_ptr<DisplayLowPower> d
     ALOGI("PowerHAL ready to process hints");
 }
 
-static int open_ts_input() {
-    int fd = -1;
-    DIR *dir = opendir("/dev/input");
-
-    if (dir != NULL) {
-        struct dirent *ent;
-
-        while ((ent = readdir(dir)) != NULL) {
-            if (ent->d_type == DT_CHR) {
-                char absolute_path[PATH_MAX] = {0};
-                char name[80] = {0};
-
-                strcpy(absolute_path, "/dev/input/");
-                strcat(absolute_path, ent->d_name);
-
-                fd = open(absolute_path, O_RDWR);
-                if (ioctl(fd, EVIOCGNAME(sizeof(name) - 1), &name) > 0) {
-                    if (strcmp(name, "atmel_mxt_ts") == 0 || strcmp(name, "fts_ts") == 0 ||
-                            strcmp(name, "fts") == 0 || strcmp(name, "ft5x46") == 0 ||
-                            strcmp(name, "synaptics_dsx") == 0 ||
-                            strcmp(name, "NVTCapacitiveTouchScreen") == 0)
-                        break;
-                }
-
-                close(fd);
-                fd = -1;
-            }
-        }
-
-        closedir(dir);
-    }
-
-    return fd;
-}
-
-static void handle_dt2w(bool enabled) {
+static int sysfs_write(const char *path, const char *s)
+{
     char buf[80];
     int len;
+    int ret = 0;
+    int fd = open(path, O_WRONLY);
 
-    int fd = open_ts_input();
-    if (fd == -1) {
-        ALOGW("DT2W won't work because no supported touchscreen input devices were found");
-        return;
+    if (fd < 0) {
+        strerror_r(errno, buf, sizeof(buf));
+        ALOGE("Error opening %s: %s\n", path, buf);
+        return -1 ;
     }
-    struct input_event ev;
-    ev.type = EV_SYN;
-    ev.code = SYN_CONFIG;
-    ev.value = enabled ? kWakeupModeOn : kWakeupModeOff;
 
-    len = write(fd, &ev, sizeof(ev));
+    len = write(fd, s, strlen(s));
     if (len < 0) {
         strerror_r(errno, buf, sizeof(buf));
-        ALOGE("Error writing to fd %d: %s\n", fd, buf);
+        ALOGE("Error writing to %s: %s\n", path, buf);
+
+        ret = -1;
     }
+
     close(fd);
+
+    return ret;
 }
 
 ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
@@ -143,7 +111,7 @@ ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
     ATRACE_INT(toString(type).c_str(), enabled);
     switch (type) {
         case Mode::DOUBLE_TAP_TO_WAKE:
-            handle_dt2w(enabled);
+            sysfs_write(TARGET_TAP_TO_WAKE_NODE, enabled ? "1" : "0");
             break;
         case Mode::LOW_POWER:
             break;
