@@ -82,16 +82,13 @@ ro.surface_flinger.supports_background_blur=1
 persist.sys.sf.disable_blurs=0
 ro.sf.blurs_are_expensive=1
 ro.surface_flinger.use_color_management=true
-ro.vendor.display.cabl=2
-
-#LMK
-ro.config.low_ram = false
 
 # Voice assistant
 ro.opa.eligible_device=true
 
 # IORap
 iorapd.readahead.enable=true
+iorapd.perfetto.enable=false
 
 # Wifi
 config.disable_rtt=true

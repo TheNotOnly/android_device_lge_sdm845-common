@@ -165,6 +165,9 @@ persist.vendor.lge.sar_fakestatus=off
 # SSR
 persist.vendor.ssr.restart_level=ALL_ENABLE
 
+# Perf
+ro.vendor.extension_library=libqti-perfd-client.so
+
 # USB
 persist.sys.usb.config.extra=none
 
