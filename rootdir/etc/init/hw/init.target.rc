@@ -92,8 +92,6 @@ on init
     chmod 0664 /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_trigger_count
     chmod 0664 /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory
 
->>>>>>> 0938e22... Remove stuneboost
-
 # Freezer setup
     write /dev/freezer/frozen/freezer.killable 1
 
