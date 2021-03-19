@@ -122,8 +122,10 @@ ro.console.enable=0
 ro.debuggable=0
 
 # LMK
-ro.lmk.psi_partial_stall_ms=70 ro.lmk.psi_complete_stall_ms=700 
-ro.lmk.thrashing_limit=100 ro.lmk.thrashing_limit_decay=10 
+ro.lmk.psi_partial_stall_ms=200
+ro.lmk.psi_complete_stall_ms=700 
+ro.lmk.thrashing_limit=30
+ro.lmk.thrashing_limit_decay=50 
 ro.lmk.swap_util_max=100
 ro.lmk.debug=false
 ro.config.low_ram=false
