@@ -79,12 +79,12 @@ start() {
     ;;
 
     "sdm845" | "msmnile" | "sm6150")
-      sz_zram=$(( memtotal_kb ))
-      sz_zram0=$(( memtotal_kb ))
+      sz_zram=$(( memtotal_kb / 2 ))
+      sz_zram0=$(( memtotal_kb / 2 ))
       compr_zram=lz4
       nr_multi_zram=4
       zram_async=1
-      max_write_threads=4
+      max_write_threads=8
 
       # Must use == expression instead of -eq to compare string
       if [ "$target" == "msmnile" ] ; then
