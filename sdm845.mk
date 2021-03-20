@@ -32,6 +32,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
+include build/make/target/product/iorap_large_memory_config.mk
 
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
