@@ -103,7 +103,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.common@6.0-util \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.audio.effect@6.0-impl \
-    android.hardware.soundtrigger@2.3-impl \
+    android.hardware.soundtrigger@2.1-impl \
     android.hardware.bluetooth.audio@2.0-impl \
     audio.a2dp.default \
     audio.bluetooth.default \
@@ -419,14 +419,6 @@ PRODUCT_PACKAGES += \
 
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
-
-# Service Tracker
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.servicetracker@1.2.vendor
-
-# System Helper
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.systemhelper@1.0.vendor
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
