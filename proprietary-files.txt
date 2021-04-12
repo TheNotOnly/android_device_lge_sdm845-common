@@ -13,6 +13,10 @@ vendor/lib/com.qualcomm.qti.ant@1.0.so
 vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
 
 # Audio
+vendor/lib64/soundfx/libeagle.so
+vendor/lib64/soundfx/libqcomvisualizer.so
+vendor/lib64/soundfx/libqcompostprocbundle.so
+vendor/lib64/soundfx/libqcomvoiceprocessing.so
 vendor/lib64/hw/audio.primary.sdm845.so
 vendor/lib64/liba2dpoffload.so
 vendor/lib64/libacdb-fts.so
@@ -25,10 +29,16 @@ vendor/lib64/libaudio_log_utils.so
 -vendor/lib64/libaudioparsers.so
 vendor/lib64/libcomprcapture.so
 vendor/lib64/libcsd-client.so
+vendor/lib64/libdts-eagle-shared.so
+vendor/lib64/libeaglecore.so
 vendor/lib64/libhdmiedid.so
 vendor/lib64/libqtigef.so
 vendor/lib64/libsndmonitor.so
 vendor/lib64/libspkrprot.so
+vendor/lib/soundfx/libeagle.so
+vendor/lib/soundfx/libqcomvisualizer.so
+vendor/lib/soundfx/libqcompostprocbundle.so
+vendor/lib/soundfx/libqcomvoiceprocessing.so
 vendor/lib/hw/audio.primary.sdm845.so
 vendor/lib/liba2dpoffload.so
 vendor/lib/libacdb-fts.so
@@ -42,6 +52,8 @@ vendor/lib/libaudio_log_utils.so
 -vendor/lib/libaudioparsers.so
 vendor/lib/libcomprcapture.so
 vendor/lib/libcsd-client.so
+vendor/lib/libdts-eagle-shared.so
+vendor/lib/libeaglecore.so
 vendor/lib/libhdmiedid.so
 vendor/lib/libqtigef.so
 vendor/lib/libsndmonitor.so
