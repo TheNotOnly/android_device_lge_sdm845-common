@@ -86,9 +86,9 @@ ro.surface_flinger.use_color_management=true
 # Voice assistant
 ro.opa.eligible_device=true
 
-# IORap
+# Iorap
+iorapd.perfetto.enable=true
 iorapd.readahead.enable=true
-iorapd.perfetto.enable=false
 
 # Wifi
 config.disable_rtt=true
