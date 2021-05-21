@@ -87,6 +87,7 @@ ro.surface_flinger.use_color_management=true
 ro.opa.eligible_device=true
 
 # Iorap
+ro.iorapd.enable=true
 iorapd.perfetto.enable=true
 iorapd.readahead.enable=true
 
